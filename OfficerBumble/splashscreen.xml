@@ -1,0 +1,9 @@
+<Scene>
+    <SceneItem>
+        <name>Logo</name>
+        <tag>companylogo</tag>
+        <height>60%</height>
+        <width>60%</width>
+        <anchor>CENTER</anchor>
+    </SceneItem>
+</Scene>

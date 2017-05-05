@@ -1,0 +1,33 @@
+<Scene>
+    <SceneItem>
+        <name>chiefsoffice</name>
+        <tag>chiefsoffice</tag>
+        <height>100%</height>
+        <width>100%</width>
+        <anchor>CENTER</anchor>
+        <ignoreaspect>true</ignoreaspect>
+        <zposition>BACKGROUND</zposition>
+        <SceneItem>
+            <texture>tools2</texture>
+            <name>chiefangry</name>
+            <tag>chiefangry</tag>
+            <height>60%</height>
+            <width>45%</width>
+            <margin-right>5%</margin-right>
+            <margin-top>16%</margin-top>
+            <anchor>CENTER_LEFT</anchor>
+            <zposition>BACKGROUND_WALL</zposition>
+        </SceneItem>
+        <SceneItem>
+            <texture>tools2</texture>
+            <name>bumblesad</name>
+            <tag>bumblesad</tag>
+            <anchor>CENTER_RIGHT</anchor>
+            <margin-right>6%</margin-right>
+            <margin-top>18%</margin-top>
+            <height>55%</height>
+            <width>33%</width>
+            <zposition>BACKGROUND_WALL</zposition>
+        </SceneItem>
+    </SceneItem>
+</Scene>

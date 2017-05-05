@@ -1,0 +1,29 @@
+<Scene>
+    <SceneItem>
+        <name>Background1</name>
+        <tag>background1</tag>
+        <texture>casino</texture>
+        <height>50%</height>
+        <width>100%</width>
+        <anchor>CENTER</anchor>
+        <zposition>1</zposition>
+    </SceneItem>
+    <SceneItem>
+        <name>Background2</name>
+        <tag>background2</tag>
+        <texture>casino</texture>
+        <height>50%</height>
+        <width>100%</width>
+        <anchor>SIBLING_CENTER_RIGHT</anchor>
+        <zposition>1</zposition>
+    </SceneItem>
+    <SceneItem>
+        <name>Background3</name>
+        <tag>background3</tag>
+        <texture>casino</texture>
+        <height>50%</height>
+        <width>100%</width>
+        <anchor>SIBLING_CENTER_RIGHT</anchor>
+        <zposition>1</zposition>
+    </SceneItem>
+</Scene>

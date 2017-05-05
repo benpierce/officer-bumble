@@ -1,0 +1,14 @@
+<Scene>
+    <SceneItem>
+        <type>BUTTON</type>
+        <name>btnback</name>
+        <texture>tools</texture>
+        <tag>btnback</tag>
+        <tag-on>btnback</tag-on>
+        <height>14%</height>
+        <width>14%</width>
+        <anchor>TOP_RIGHT</anchor>
+        <zposition>HUD</zposition>
+        <hud-element>true</hud-element>
+    </SceneItem>
+</Scene>

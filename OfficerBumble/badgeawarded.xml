@@ -1,0 +1,22 @@
+<Scene>
+    <SceneItem>
+        <name>chiefsoffice</name>
+        <tag>chiefsoffice</tag>
+        <height>100%</height>
+        <width>100%</width>
+        <anchor>CENTER</anchor>
+        <ignoreaspect>true</ignoreaspect>
+        <zposition>BACKGROUND</zposition>
+        <SceneItem>
+            <texture>tools2</texture>
+            <name>chiefpromotion</name>
+            <tag>chiefpromotion</tag>
+            <height>60%</height>
+            <width>45%</width>
+            <margin-right>5%</margin-right>
+            <margin-top>16%</margin-top>
+            <anchor>CENTER_LEFT</anchor>
+            <zposition>BACKGROUND_WALL</zposition>
+        </SceneItem>
+    </SceneItem>
+</Scene>
