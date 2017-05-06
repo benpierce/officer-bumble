@@ -112,7 +112,8 @@ final class Criminal : SKSpriteNode, PhysicsHandler {
     
     // Try to do all setup in here.
     public init(display : Display) {
-        let texture = SKTexture(imageNamed: "crook_sequence_run0001") // Pick any texture.
+        let texture = SKTexture(imageNamed: "crook_sequence_run0001") // Pick any texture
+        
         self.display = display
         
         // Set Bumble's size which will never change.
@@ -123,6 +124,7 @@ final class Criminal : SKSpriteNode, PhysicsHandler {
         escalatorHeight = display.GetNormalizedScreenHeightByPercentage(0.5)
         
         super.init(texture: texture, color: UIColor.clear, size: size)    // After this we can use self.
+        InitializeGlobalVars()
         
         collisionNode = SKSpriteNode()
         collisionNode!.size.height = size.height
@@ -134,6 +136,29 @@ final class Criminal : SKSpriteNode, PhysicsHandler {
         super.name = "Criminal"
         
         InitializeTextures()
+    }
+    
+    fileprivate func InitializeGlobalVars() {
+        currentState = STATE.running
+        bumbleBecameClose = false
+        bumbleDistance = 0
+        bumbleLevel = 0
+        hasAttacked = false
+        secondWinds = 0
+        secondWindsFloor1 = 0
+        secondWindsFloor2 = 0
+        secondWindsFloor3 = 0
+        secondWindsFloor4 = 0
+        slowDownPercentage = CGFloat(1.0)        // What % of the regular velocity should criminal drop to on 4th floor?
+        
+        // Velocity related values.
+        velocity = CGFloat(0)
+        originalVelocity = CGFloat(0)
+        maxiumumWeaponVelocity = CGFloat(2)
+        lastVelocityAdjustmentTime = 0
+        lastAttackTime = 0
+        lastAttackCheck = 0
+        secondWindStartTime = 0
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -290,6 +315,9 @@ final class Criminal : SKSpriteNode, PhysicsHandler {
         
         // So that we never skip movement frames!
         if (currentTime - lastVelocityAdjustmentTime) > 0.05 {
+            lastVelocityAdjustmentTime = currentTime - 0.05
+        }
+        if (currentTime - lastVelocityAdjustmentTime) < 0 {
             lastVelocityAdjustmentTime = currentTime - 0.05
         }
         

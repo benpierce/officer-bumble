@@ -96,6 +96,7 @@ final class Bumble : SKSpriteNode, PhysicsHandler {
         cameraPositionCaptureRequired = true
         
         super.init(texture: texture, color: UIColor.clear, size: size)    // After this we can use self.
+        InitializeGlobalVars()
         
         collisionNode = SKSpriteNode()
         collisionNode!.size.height = size.height
@@ -107,6 +108,18 @@ final class Bumble : SKSpriteNode, PhysicsHandler {
         super.name = "Bumble"
         
         InitializeTextures()
+    }
+    
+    // Swift 3 doesn't seem to initialize global variables each time, so
+    fileprivate func InitializeGlobalVars() {
+        currentState = STATE.running
+        floorLevel = 1
+        direction = DIRECTION.right
+        duckTime = 1
+        invincibilityStartTime = 1
+        lastVelocityAdjustmentTime = 0
+        isStationary = false
+        cameraEnabled = true
     }
     
     required public init(coder aDecoder: NSCoder) {
@@ -140,6 +153,8 @@ final class Bumble : SKSpriteNode, PhysicsHandler {
         
         // So that we never skip movement frames!
         if (currentTime - lastVelocityAdjustmentTime) > 0.05 {
+            lastVelocityAdjustmentTime = currentTime - 0.05
+        } else if (currentTime - lastVelocityAdjustmentTime < 0) {      // To prevent a negative velocity from ever occuring
             lastVelocityAdjustmentTime = currentTime - 0.05
         }
         
@@ -220,6 +235,8 @@ final class Bumble : SKSpriteNode, PhysicsHandler {
     }
     
     func Jump() {
+        print("Jump Pushed!")
+        
         if(CanJump()) {
             BeginAccelerate()
             currentState = .jumping

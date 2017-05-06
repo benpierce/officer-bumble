@@ -15,8 +15,7 @@ open class Easy : Difficulty {
     open var BUMBLE_MAX_VELOCITY_TIME: TimeInterval { get { return 0.2 } }
     
       // Criinal Constants
-    //fileprivate var CRIMINAL_VELOCITY: CGFloat { get { return CGFloat(0.9) } }
-    fileprivate var CRIMINAL_VELOCITY: CGFloat { get { return CGFloat(0.4) } }
+    fileprivate var CRIMINAL_VELOCITY: CGFloat { get { return CGFloat(0.85) } }
     open var CRIMINAL_MAX_WEAPONS_IN_QUEUE: Int { get { return 3 } }
     open var CRIMINAL_MIN_TIME_BETWEEN_ATTACKS: TimeInterval { get { return 0.25 } }
     open var CRIMINAL_ATTACK_PERCENTAGE: Double { get { return 0.55 } }

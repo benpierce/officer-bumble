@@ -71,6 +71,8 @@ class LevelScreen: GameScene {
         criminal!.Run()
         physicsWorld.contactDelegate = self
         
+        print("Bumble initial position is \(bumble!.position.x), \(bumble!.position.y)")
+        
         AddHUD()
         
         if ( gameStateManager.ShowTutorial() ) {
@@ -107,7 +109,7 @@ class LevelScreen: GameScene {
         criminal!.Update(currentTime, bumble: bumble!, maximumWeaponVelocity: super.maximumWeaponVelocity, isPaused: world!.isPaused)
         hudManager!.Update(bumble!, criminal: criminal!, world: world!)
         toast!.Update(currentTime)
-
+        
         super.update(currentTime)
     }
     
