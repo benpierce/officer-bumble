@@ -40,6 +40,7 @@ open class GameScene : SKScene, SKPhysicsContactDelegate {
         }
         
         super.init(size: size)
+
         //super.init(size: newSize)
         //self.scaleMode = .AspectFit
         self.scaleMode = .resizeFill
@@ -89,6 +90,7 @@ open class GameScene : SKScene, SKPhysicsContactDelegate {
             
             inputManager.DispatchTouch(name, touchPoint: location, isPaused: world!.isPaused)
         }
+        
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -208,8 +210,6 @@ open class GameScene : SKScene, SKPhysicsContactDelegate {
     */
     func PresentScene(_ scene: SKScene) {
         DereferenceAll() // Dereferences all pointers to the scene so that it can be released successfully.
-        
-        print("presenting \(scene.name)")
         
         self.view?.presentScene(scene)
     }

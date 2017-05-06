@@ -235,8 +235,6 @@ final class Bumble : SKSpriteNode, PhysicsHandler {
     }
     
     func Jump() {
-        print("Jump Pushed!")
-        
         if(CanJump()) {
             BeginAccelerate()
             currentState = .jumping

@@ -71,8 +71,6 @@ class LevelScreen: GameScene {
         criminal!.Run()
         physicsWorld.contactDelegate = self
         
-        print("Bumble initial position is \(bumble!.position.x), \(bumble!.position.y)")
-        
         AddHUD()
         
         if ( gameStateManager.ShowTutorial() ) {

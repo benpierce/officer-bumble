@@ -38,6 +38,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
             skView.ignoresSiblingOrder = true
             skView.showsPhysics = false
             skView.presentScene(scene)
+            skView.isMultipleTouchEnabled = true
  //       }
     }
     
