@@ -21,30 +21,25 @@ open class GameSharedPreferences {
     open let HIGH_SCORE_HARDCORE_PREFERENCE = "HighScoreHardcore"
     
     open func ReadString(_ key: String) -> String {
-        let defaults: UserDefaults = UserDefaults.standard
-        var result: String? = defaults.object(forKey: key) as? String
-        
-        if ( result == nil ) {
-            result = ""
-        }
-        
-        return result!
+        return UserDefaults.standard.value(forKey: key)! as! String
     }
     
     open func WriteString(_ key: String, value: String) -> Void {
-        let defaults: UserDefaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
+        
+        defaults.set(value, forKey: key)
+        defaults.synchronize()
+    }
+    
+    open func WriteInteger(_ key :String, value: Int) -> Void {
+        let defaults = UserDefaults.standard
         
         defaults.set(value, forKey: key)
         defaults.synchronize()
     }
     
     open func ReadInteger(_ key: String) -> Int {
-        var result = Int(ReadString(key))
-    
-        if ( result == nil ) {
-            result = 0
-        }
-        
-        return result!
+        let defaults = UserDefaults.standard
+        return defaults.integer(forKey: key)
     }
 }

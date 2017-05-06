@@ -95,8 +95,9 @@ open class GameStateManager {
             caughtHardcore = caughtHardcore + 1
         }
         
-        // Save the # of Criminals Caught
-        IncrementTotalCriminalsCaught()
+        // Save the # of Criminals Caught throughout all time
+        gm.WriteInteger(gm.CRIMINALS_CAUGHT_PREFERENCE, value: caught)
+        gm.WriteInteger(gm.CRIMINALS_CAUGHT_HARDCORE_PREFERENCE, value: caughtHardcore)
         
         // Save your high scores locally.
 		//LeaderboardServices().SaveLocally(self, criminalsCaught: caught, criminalsCaughtHardcore: caughtHardcore)
@@ -310,28 +311,5 @@ open class GameStateManager {
         
         
         return nextLevel
-    }
-    
-    /*
-    ===============================================================================
-    IncrementTotalCriminalsCaught
-    
-    Uses NSUserDefaults to retrieve the number of criminals that have been caught,
-    increments by 1, and then re-saves it.
-    ===============================================================================
-    */
-    private func IncrementTotalCriminalsCaught() -> Int {
-        let defaults: UserDefaults = UserDefaults.standard
-        var caught: Int = 0
-        
-        if (defaults.object(forKey: "criminalsCaught") as? Int) != nil {
-            caught = defaults.object(forKey: "criminalsCaught") as! Int
-        }
-        
-        caught = caught + 1
-        defaults.set(caught, forKey: "criminalsCaught")
-        defaults.synchronize()
-        
-        return caught
     }
 }
