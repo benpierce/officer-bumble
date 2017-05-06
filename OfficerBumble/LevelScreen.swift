@@ -74,8 +74,8 @@ class LevelScreen: GameScene {
         AddHUD()
         
         if ( gameStateManager.ShowTutorial() ) {
+            needsWorldPause = true
             toast!.Show("Level \(gameStateManager.GetLevel())", timeToDisplay: 3, showTimer: true, display: display, completionBlock: BeginGame)
-            QueueWorldPause()
         } else {
             toast!.Show("Level \(gameStateManager.GetLevel())", timeToDisplay: 1, display: display, completionBlock: {})
         }
@@ -96,7 +96,7 @@ class LevelScreen: GameScene {
     
     fileprivate func BeginGame() {
         if ( !pausePopup.IsOpen() ) {
-            world!.isPaused = false
+            needsWorldPause = false
         }
     }
     
@@ -129,11 +129,9 @@ class LevelScreen: GameScene {
         }
         
         if ( needsWorldPause ) {
-            worldPauseFrame = worldPauseFrame - 1
-            if ( worldPauseFrame == 0 ) {
-                needsWorldPause = false
-                world!.isPaused = true
-            }
+            world!.isPaused = true
+        } else {
+            world!.isPaused = false
         }
     }
     
